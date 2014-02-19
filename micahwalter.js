@@ -1,9 +1,14 @@
 var express = require("express");
+var swig  = require('swig');
 
 var app = express();
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+swig.setDefaults({ cache: false });
 
 app.get('/', function(req, res) {
-  res.send('Hello World!');
+  res.render('index', { title: 'Hello World' });
 });
 
 var port = Number(process.env.PORT || 5000);
