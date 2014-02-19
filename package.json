@@ -1,0 +1,22 @@
+{
+  "name": "micahwalter",
+  "version": "0.0.0",
+  "description": "micahwalter, the website",
+  "main": "micahwalter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micahwalter/micahwalter.git"
+  },
+  "author": "Micah Walter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micahwalter/micahwalter/issues"
+  },
+  "homepage": "https://github.com/micahwalter/micahwalter",
+  "dependencies": {
+    "express": "~3.4.8"
+  }
+}
