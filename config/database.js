@@ -1,5 +1,4 @@
 // config/database.js
-
 	
 if (process.env.MONGOHQ_URL) {
 	module.exports = {

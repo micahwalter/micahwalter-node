@@ -8,6 +8,8 @@ var passport = require('passport');
 var flash 	 = require('connect-flash');
 
 var configDB = require('./config/database.js');
+var configAuth = require('./config/auth.js');
+
 require('./config/passport')(passport);
 
 mongoose.connect(configDB.url);
@@ -25,7 +27,7 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 	
 	// passport
-	app.use(express.session({ secret: 'S33KREETS!' })); 
+	app.use(express.session({ secret: configAuth.secret })); 
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use(flash()); 
