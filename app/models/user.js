@@ -9,6 +9,7 @@ var userSchema = mongoose.Schema({
     local            : {
         email        : String,
         password     : String,
+<<<<<<< HEAD
     },
 	
     twitter          : {
@@ -25,6 +26,9 @@ var userSchema = mongoose.Schema({
         name         : String
     },	
 	
+=======
+    }
+>>>>>>> 1286a660198cb32cae5bdcc8fa091d136627ea4d
 });
 
 // methods ======================

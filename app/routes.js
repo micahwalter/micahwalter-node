@@ -36,6 +36,7 @@ module.exports = function(app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
+<<<<<<< HEAD
 	
 	// =====================================
 	// TWITTER ROUTES ======================
@@ -166,5 +167,19 @@ function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 
+=======
+};
+
+//////////////////////////////////////////////////////////////////////
+// route middleware to make sure a user is logged in
+
+function isLoggedIn(req, res, next) {
+
+	// if user is authenticated in the session, carry on 
+	if (req.isAuthenticated())
+		return next();
+
+	// if they aren't redirect them to the home page
+>>>>>>> 1286a660198cb32cae5bdcc8fa091d136627ea4d
 	res.redirect('/');
 }
