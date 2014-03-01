@@ -1,15 +1,7 @@
-// app/routes.js
-
-var authorization = require('./middlewares/authorization');
+// app/auth.js
 
 module.exports = function(app, passport) {
-	
-	app.get('/profile', authorization.isLoggedIn, function(req, res) {
-		res.render('profile', {
-			user : req.user
-		});
-	});
-	
+		
 	app.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
@@ -27,7 +19,6 @@ module.exports = function(app, passport) {
 			successRedirect : '/profile',
 			failureRedirect : '/'
 		}));
-	
-
+		
 };
 
