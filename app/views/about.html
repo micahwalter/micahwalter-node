@@ -1,15 +1,5 @@
-<!doctype html>
-<html>
-<head>
-	<title>micah walter | {{ title }}</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-	<style>
-		body 		{ padding-top:80px; }
-	</style>
-</head>
-<body>
-<div class="container">
+{% extends 'layouts/default.html' %}
+{% block content %}
 		<h1>{{ title }}</h1>
 		<p>Letterpress trust fund ex, laborum fap nulla sunt authentic typewriter bicycle rights keffiyeh locavore incididunt. Mumblecore nihil before they sold out, aute photo booth biodiesel +1 brunch whatever bespoke leggings. Cardigan ullamco deserunt, Schlitz McSweeney's tousled odio keytar roof party Terry Richardson delectus. Helvetica magna Godard biodiesel letterpress roof party, Intelligentsia McSweeney's non minim beard. YOLO banjo laborum photo booth lo-fi freegan aute raw denim, art party et aliquip normcore ullamco tattooed. Nesciunt Pinterest incididunt, dolore Neutra High Life post-ironic keytar hella Carles magna gastropub Truffaut. Craft beer Terry Richardson selvage, mlkshk vinyl eu voluptate.</p>
 
@@ -18,6 +8,4 @@
 <p>Qui retro synth, commodo master cleanse meh Helvetica Thundercats. Intelligentsia Thundercats keytar accusamus Bushwick. Narwhal Odd Future meggings organic. Try-hard irure four loko polaroid selfies pariatur. Intelligentsia non Pinterest leggings, forage incididunt occupy single-origin coffee street art Helvetica gentrify chillwave +1 nihil. Authentic butcher art party pour-over. Beard labore dolore single-origin coffee vinyl.</p>
 
 <p>McSweeney's seitan normcore Marfa fixie. Kitsch irony raw denim nulla kale chips Williamsburg, magna dolor mixtape commodo McSweeney's irure put a bird on it. Cornhole ex ea chia banh mi Wes Anderson. 90's mixtape hashtag, in viral sartorial Shoreditch direct trade Godard semiotics Pinterest bicycle rights PBRB. Nostrud Marfa craft beer exercitation, ea cliche chia Terry Richardson YOLO et church-key slow-carb Blue Bottle. Carles selvage assumenda YOLO. Fugiat DIY dolore placeat do, mlkshk sint American Apparel banjo gluten-free Banksy elit culpa in next level.</p>		
-</div>
-</body>
-</html>	
+{% endblock %}
