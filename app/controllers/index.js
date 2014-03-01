@@ -1,3 +1,6 @@
 exports.render = function(req, res) {
-    res.render('index', { title: 'Hello World' });
+    res.render('index', { 
+		user : req.user,
+		title : 'Hello World'
+	 });
 };

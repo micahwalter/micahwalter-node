@@ -1,11 +1,9 @@
 var authorization = require('./middlewares/authorization');
 
-module.exports = function(app, passport) {
-	
-	app.get('/profile', authorization.isLoggedIn, function(req, res) {
-		res.render('profile', {
-			user : req.user
-		});
-	});
+module.exports = function(app) {
+	    
+    // Profile route
+    var profile = require('../controllers/profile');
+    app.get('/profile', authorization.isLoggedIn, profile.render);
 
 };
