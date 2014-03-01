@@ -6,7 +6,7 @@
 			<h1>{{ title }}</h1>
 			
 			{% if user %}
-			<p>Hello, {{ user.twitter.username }}</p>
+			<p>Hello, {{ user.twitter.displayName }}</p>
 			{% endif %}
 						
 		    {% block content %}{% endblock %}
