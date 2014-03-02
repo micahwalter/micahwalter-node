@@ -4,15 +4,6 @@ var fs = require('fs');
 
 var app = express();
 
-if (process.env.NODE_ENV == 'prod') {
-	app.use(function(err, req, res, next) {
-        if (req.header['x-forwarded-proto'] != 'https')
-          res.redirect("https://" + req.header['host'] + req.url);
-        else
-          next();
-	});
-}
-
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash 	 = require('connect-flash');
