@@ -10,7 +10,9 @@
 					<p>
 						<strong>id</strong>: {{ user.twitter.id }}<br>
 						<strong>display name</strong>: {{ user.twitter.displayName }}<br>
-						<strong>username</strong>: <a href="/@{{ user.twitter.username }}">{{ user.twitter.username }}</a>
+						<strong>description</strong>: {{ user.twitter.description }}<br>
+						<strong>username</strong>: <a href="/@{{ user.twitter.username }}">{{ user.twitter.username }}</a><br />
+						<img src="{{ user.twitter.profilePhoto }}" />
 					</p>
 			</div>
 		</div>
