@@ -5,15 +5,12 @@ var fs = require('fs');
 var app = express();
 
 if (process.env.NODE_ENV == 'prod') {
-	app.use(function(err, req, res, next) {
-	    if (req.header['x-forwarded-proto'] == 'https') { 
-			console.log(req.header.host);
-	        return next(); 
-	    } else {
-	        res.redirect('https://' + req.header.host + req.path);
-			console.log(req.header.host);
-	    }
-	});
+	app.get('*',function(req,res,next){
+	  if(req.headers['x-forwarded-proto']!='https')
+	    res.redirect('https://' + req.headers.host + req.url)
+	  else
+	    next() /* Continue to other routes if we're not redirecting */
+	})
 }
 
 var mongoose = require('mongoose');
