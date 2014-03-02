@@ -1,8 +1,13 @@
 var express = require("express");
+var forceSSL = require('express-force-ssl');
 var swig  = require('swig');
 var fs = require('fs');
 
 var app = express();
+
+if (process.env.NODE_ENV == 'prod') {
+	app.use(forceSSL);
+}
 
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -72,9 +77,7 @@ var walk = function(path) {
 walk(routes_path);
 
 
-// Assume "not found" in the error msgs is a 404. this is somewhat
-// silly, but valid, you can do whatever you like, set properties,
-// use instanceof etc.
+// 500 and 404 stuff here
 app.use(function(err, req, res, next) {
     // Treat as 404
     if (~err.message.indexOf('not found')) return next();
