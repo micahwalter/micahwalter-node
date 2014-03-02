@@ -6,10 +6,12 @@ var app = express();
 
 if (process.env.NODE_ENV == 'prod') {
 	app.use(function(err, req, res, next) {
-	    if (req.headers['x-forwarded-proto'] == 'https') { 
+	    if (req.header['x-forwarded-proto'] == 'https') { 
+			console.log(req.header.host);
 	        return next(); 
 	    } else {
-	        res.redirect('https://' + req.headers.host + req.path);
+	        res.redirect('https://' + req.header.host + req.path);
+			console.log(req.header.host);
 	    }
 	});
 }
