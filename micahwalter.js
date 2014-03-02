@@ -4,6 +4,16 @@ var fs = require('fs');
 
 var app = express();
 
+if (process.env.NODE_ENV == 'prod') {
+	app.use(function(err, req, res, next) {
+	    if (req.headers['x-forwarded-proto'] == 'https') { 
+	        return next(); 
+	    } else {
+	        res.redirect('https://' + req.headers.host + req.path);
+	    }
+	});
+}
+
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash 	 = require('connect-flash');
