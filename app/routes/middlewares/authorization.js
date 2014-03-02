@@ -7,5 +7,5 @@ exports.isLoggedIn = function(req, res, next) {
 		return next();
 
 	// if they aren't redirect them to the home page
-	return res.send(401, 'User is not authorized');
+	return res.redirect('/');
 };
