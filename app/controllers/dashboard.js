@@ -1,7 +1,7 @@
 exports.render = function(req, res, passport) {
-	res.render('profile', {
+	res.render('dashboard', {
 		user : req.user,
-		title: 'Profile'
+		title: 'Dashboard'
 	});
 	
 };
