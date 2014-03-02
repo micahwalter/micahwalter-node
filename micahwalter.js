@@ -4,15 +4,6 @@ var fs = require('fs');
 
 var app = express();
 
-if (process.env.NODE_ENV == 'prod') {
-	app.get('*',function(req,res,next){
-	  if(req.headers['x-forwarded-proto']!='https')
-	    res.redirect('https://' + req.headers.host + req.url)
-	  else
-	    next() /* Continue to other routes if we're not redirecting */
-	})
-}
-
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash 	 = require('connect-flash');
@@ -48,7 +39,6 @@ app.configure(function() {
 	app.use(express.cookieParser());
 	app.use(express.urlencoded())
 	app.use(express.json())
-	app.enable("trust proxy");
 	
 	app.engine('html', swig.renderFile);
 	app.set('view engine', 'html');
