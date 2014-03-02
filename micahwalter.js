@@ -39,6 +39,7 @@ app.configure(function() {
 	app.use(express.cookieParser());
 	app.use(express.urlencoded())
 	app.use(express.json())
+	app.set('json spaces', 2);
 	
 	app.engine('html', swig.renderFile);
 	app.set('view engine', 'html');
