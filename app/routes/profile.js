@@ -1,6 +1,6 @@
 module.exports = function(app) {
 	    
-    // Home route
+    // Profile route
     var profile = require('../controllers/profile');
     app.get('/@:username', profile.render);
 	
