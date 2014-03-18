@@ -14,9 +14,15 @@ var userSchema = mongoose.Schema({
 
 
 // methods
-userSchema.statics.findByName = function (username, cb, err) {
+
+// ************************************************************** //
+
+userSchema.statics.find_by_name = function (username, cb, err) {
   this.findOne({ 'twitter.username': username }, cb);
 }
+
+// ************************************************************** //
+
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
