@@ -27,7 +27,7 @@ var PostSchema = new Schema({
 // ************************************************************** //
 
 PostSchema.statics.findByID = function (id, cb, err) {
-  this.findOne({ '_id': id }, cb);
+  this.findOne({ '_id': id }, cb).populate('user', 'twitter.username');
 }
 
 // ************************************************************** //
