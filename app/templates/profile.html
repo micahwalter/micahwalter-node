@@ -17,6 +17,14 @@
 						<strong>username</strong>: {{ profile.twitter.username }}<br />
 						<img src="{{ profile.twitter.profilePhoto }}" />
 					</p>
+					
+					<ul>
+					{% for post in posts %}
+					  <li>
+					    <a href="/p/{{ post.id }}">{{ post.title }} created on {{ post.created|date('F jS, Y') }}</a>
+					  </li>
+					{% endfor %}
+					</ul>
 			</div>
 		</div>
 	</div>

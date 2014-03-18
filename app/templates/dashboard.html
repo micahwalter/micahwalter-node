@@ -16,6 +16,18 @@
 						<strong>username</strong>: <a href="/@{{ user.twitter.username }}">{{ user.twitter.username }}</a><br />
 						<img src="{{ user.twitter.profilePhoto }}" />
 					</p>
+					
+					<table class="table table-striped">
+					<tbody>
+					{% for post in posts %}
+					  <tr>
+					    <td><a href="/p/{{ post.id }}">{{ post.title }}</td>
+						<td>{{ post.created|date('F jS, Y') }}</td>
+					  </tr>
+					{% endfor %}
+					</tbody>
+					</table>
+					
 			</div>
 		</div>
 	</div>

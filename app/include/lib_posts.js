@@ -31,5 +31,12 @@ PostSchema.statics.findByID = function (id, cb, err) {
 }
 
 // ************************************************************** //
+
+PostSchema.statics.findAllByUserID = function (id, cb, err) {
+  this.find({ 'user': id }, cb);
+}
+
+
+// ************************************************************** //
 // create the model for posts and expose it to our app
 module.exports = mongoose.model('Post', PostSchema);
