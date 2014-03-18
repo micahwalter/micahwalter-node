@@ -44,6 +44,7 @@ app.configure(function() {
 	app.engine('html', swig.renderFile);
 	app.set('view engine', 'html');
 	app.set('views', __dirname + '/app/templates');
+	app.use(express.static(__dirname + '/app/public'));
 		
 	// passport
 	app.use(express.session({ secret: configAuth.secret })); 
