@@ -4,7 +4,7 @@
 var TwitterStrategy  = require('passport-twitter').Strategy;
 
 // load up the user model
-var User       = require('../app/include/user');
+var User = require('../app/include/lib_users');
 
 // load the auth variables
 var configAuth = require('./auth');

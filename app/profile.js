@@ -1,4 +1,4 @@
-var User = require('./include/user');
+var User = require('./include/lib_users');
 
 exports.render = function(req, res) {
 	
