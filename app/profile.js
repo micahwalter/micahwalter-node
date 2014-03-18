@@ -1,5 +1,5 @@
 // load up the user model
-var User       = require('../models/user');
+var User       = require('./include/user');
 
 
 exports.render = function(req, res) {

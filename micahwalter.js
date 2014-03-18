@@ -16,7 +16,7 @@ require('./config/passport')(passport);
 mongoose.connect(configDB.url);
 
 // Bootstrap models
-var models_path = __dirname + '/app/models';
+var models_path = __dirname + '/app/include';
 var walk = function(path) {
     fs.readdirSync(path).forEach(function(file) {
         var newPath = path + '/' + file;
@@ -43,7 +43,7 @@ app.configure(function() {
 	
 	app.engine('html', swig.renderFile);
 	app.set('view engine', 'html');
-	app.set('views', __dirname + '/app/views');
+	app.set('views', __dirname + '/app/templates');
 		
 	// passport
 	app.use(express.session({ secret: configAuth.secret })); 
@@ -56,21 +56,7 @@ app.configure(function() {
 swig.setDefaults({ cache: false });
 
 // Bootstrap routes
-var routes_path = __dirname + '/app/routes';
-var walk = function(path) {
-    fs.readdirSync(path).forEach(function(file) {
-        var newPath = path + '/' + file;
-        var stat = fs.statSync(newPath);
-        if (stat.isFile()) {
-            if (/(.*)\.(js$|coffee$)/.test(file)) {
-                require(newPath)(app, passport);
-            }
-        } else if (stat.isDirectory() && file !== 'middlewares') {
-            walk(newPath);
-        }
-    });
-};
-walk(routes_path);
+require('./routes')(app, passport);
 
 
 // 500 and 404 stuff here
