@@ -24,11 +24,12 @@ var PostSchema = new Schema({
 });
 
 
-// methods
-PostSchema.statics.load = function(id, cb) {
-    this.findOne({
-        _id: id
-    }).populate('user', 'name username').exec(cb);
-};
+// ************************************************************** //
 
-mongoose.model('Post', PostSchema);
+PostSchema.statics.findByID = function (id, cb, err) {
+  this.findOne({ '_id': id }, cb);
+}
+
+// ************************************************************** //
+// create the model for posts and expose it to our app
+module.exports = mongoose.model('Post', PostSchema);

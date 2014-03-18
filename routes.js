@@ -34,6 +34,10 @@ module.exports = function(app, passport) {
     // Posts
 	var post_new = require('./app/post_new');
 	app.get('/p/new-post', authorization.isLoggedIn, post_new.render);
+	app.post('/p/new-post', authorization.isLoggedIn, post_new.create);
+	
+	var post = require('./app/post');
+	app.get('/p/:id', post.render)
 	
 	// About page route
     var about = require('./app/about');

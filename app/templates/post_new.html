@@ -2,7 +2,37 @@
 {% block content %}
 
 {% if user %}
-	<p><a href="/logout" class="btn btn-default btn-sm">Logout</a></p>
+	<p><a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	<a href="/" class="btn btn-danger btn-sm">Cancel</a></p>
 {% endif %}
-	<p>this will be a form for making a new post</p>
+	<form class="form-horizontal" action="/p/new-post" method="post" >
+	<fieldset>
+
+	<!-- Text input-->
+	<div class="control-group">
+	  <label class="control-label" for="title">Title</label>
+	  <div class="controls">
+	    <input id="title" name="title" type="text" placeholder="" class="input-xlarge" required="">
+    
+	  </div>
+	</div>
+
+	<!-- Textarea -->
+	<div class="control-group">
+	  <label class="control-label" for="content"></label>
+	  <div class="controls">                     
+	    <textarea id="content" name="content"></textarea>
+	  </div>
+	</div>
+
+	<!-- Button -->
+	<div class="control-group">
+	  <label class="control-label" for="submit"></label>
+	  <div class="controls">
+	    <button class="btn btn-primary">Submit</button>
+	  </div>
+	</div>
+
+	</fieldset>
+	</form>
 {% endblock %}
