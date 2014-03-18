@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 // data model for an article
-var ArticleSchema = new Schema({
+var PostSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
@@ -25,10 +25,10 @@ var ArticleSchema = new Schema({
 
 
 // methods
-ArticleSchema.statics.load = function(id, cb) {
+PostSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
     }).populate('user', 'name username').exec(cb);
 };
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Post', PostSchema);

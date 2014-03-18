@@ -1,0 +1,8 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+{% if user %}
+	<p><a href="/logout" class="btn btn-default btn-sm">Logout</a></p>
+{% endif %}
+	<p>this will be a form for making a new post</p>
+{% endblock %}

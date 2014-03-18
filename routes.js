@@ -31,7 +31,11 @@ module.exports = function(app, passport) {
 	var profile = require('./app/profile');
 	app.get('/@:username', profile.render);
 	
-    // About page route
+    // Posts
+	var post_new = require('./app/post_new');
+	app.get('/p/new-post', authorization.isLoggedIn, post_new.render);
+	
+	// About page route
     var about = require('./app/about');
     app.get('/about', about.render);
 	
