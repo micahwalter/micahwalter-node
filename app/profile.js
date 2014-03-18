@@ -4,7 +4,7 @@ exports.render = function(req, res) {
 	
 	// ************************************************************** //
 	
-	User.find_by_name(req.params['username'], function (err, users) {
+	User.findByName(req.params['username'], function (err, users) {
 	
 	    if ( !users ){
 		

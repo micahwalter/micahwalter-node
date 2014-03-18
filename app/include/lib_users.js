@@ -17,7 +17,7 @@ var userSchema = mongoose.Schema({
 
 // ************************************************************** //
 
-userSchema.statics.find_by_name = function (username, cb, err) {
+userSchema.statics.findByName = function (username, cb, err) {
   this.findOne({ 'twitter.username': username }, cb);
 }
 
