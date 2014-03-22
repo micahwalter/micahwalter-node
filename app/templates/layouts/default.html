@@ -1,12 +1,13 @@
 <!doctype html>
-<html>
+<html lang="en">
 	{% include '../includes/head.html' %}
 	<body>
 		<div class="container">
-			<h1>{{ title }}</h1>
-			
-			{% if user %}
-			<p>Hello, {{ user.twitter.displayName }}</p>
+			{% if !user %}<a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>{% endif %}
+					<h1>{{ title }}</h1>
+	
+					{% if user %}
+					<p>Hello, {{ user.twitter.displayName }}</p>
 			{% endif %}
 						
 		    {% block content %}{% endblock %}
