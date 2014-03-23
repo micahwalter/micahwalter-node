@@ -2,11 +2,13 @@ var User = require('./include/lib_users');
 
 exports.render = function(req, res) {
 	
-	if ( req.user ) {
+	if ( req.user && !req.user.profileComplete ) {
 		res.render('complete_profile', {
 			user : req.user,
 			title: 'Complete Profile' 
 		});
+	} else if ( req.user ) {
+		res.redirect('/dashboard');
 	} else {
 		// make sure were logged out
 		res.redirect('/logout');
