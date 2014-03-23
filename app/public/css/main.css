@@ -21,6 +21,12 @@ p {
 	line-height: 1.5;
 }
 
+img {
+   display: block;
+   height: auto;
+   max-width: 100%;
+}
+
 .well {
 	background-color: #fff;
 	background-image: none;
