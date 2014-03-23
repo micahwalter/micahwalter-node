@@ -1,29 +1,25 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
 
-{% if user %}
-	<p><a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	<a href="/" class="btn btn-danger btn-sm">Cancel</a></p>
-{% endif %}
-	<form class="form-horizontal" action="/p/new-post" method="post" >
+	<form  action="/p/new-post" method="post" >
 	<fieldset>
 
 	<!-- Form Name -->
 	<legend>Create a post</legend>
 
 	<!-- Text input-->
-	<div class="control-group">
+	<div class="input-group">
 	  <label class="control-label" for="title">Title</label>
-	  <div class="controls">
-	    <input id="title" name="title" type="text" placeholder="" class="input-xlarge" required="">
+	  <div class="form control">
+	    <input id="title" name="title" type="text" placeholder="" class="form-control" required="">
     
 	  </div>
 	</div>
 
 	<!-- Textarea -->
-	<div class="control-group">
-	  <label class="control-label" for="content"></label>
-	  <div class="controls">                     
+	<div class="input-group">
+	  <label class="input-label" for="content"></label>
+	  <div class="form control">                     
 	    <textarea id="content" name="content"></textarea>
 	  </div>
 	</div>
@@ -32,7 +28,8 @@
 	<div class="control-group">
 	  <label class="control-label" for="submit"></label>
 	  <div class="controls">
-	    <button class="btn btn-primary">Submit</button>
+	    <button class="btn btn-lg btn-primary">Submit</button>
+		<a href="/" class="btn btn-lg btn-danger" role="button">Cancel</a>
 	  </div>
 	</div>
 

@@ -1,21 +1,12 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
-{% if user %}
-	<p><a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	<a href="/p/new-post" class="btn btn-default btn-sm">New Post</a>
-	</p>
-{% endif %}
-	<div class="row">
+
 		<!-- POST INFORMATION -->
-		<div class="col-sm-12">
-			<div class="well">
+		
 					<p>
 						<strong>id</strong>: {{ post.id }}<br>
 						<p>{{ post.content }}</p>
 						<p>posted by <a href="/@{{ post.user.twitter.username }}">{{ post.user.twitter.username }}</a></p>
 					</p>
-			</div>
-		</div>
-	</div>
 
 {% endblock %}

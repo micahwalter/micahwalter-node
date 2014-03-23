@@ -3,7 +3,13 @@
 	{% include '../includes/head.html' %}
 	<body>
 		<div class="container">
-			{% if !user %}<a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>{% endif %}
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			{% if !user %}<a href="/auth/twitter" class="btn btn-lg btn-primary" role="button"><span class="fa fa-twitter"></span> Twitter</a>{% endif %}
+			{% if user %}
+				<a href="/logout" class="btn btn-lg btn-primary" role="button">Logout</a>
+				<a href="/p/new-post" class="btn btn-lg btn-primary" role="button">New Post</a>
+			{% endif %}
+			
 					<h1>{{ title }}</h1>
 	
 					{% if user %}
@@ -11,6 +17,7 @@
 			{% endif %}
 						
 		    {% block content %}{% endblock %}
+			</div>
 		</div>
 	{% include '../includes/foot.html' %}
     </body>
