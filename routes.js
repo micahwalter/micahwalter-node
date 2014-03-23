@@ -43,6 +43,10 @@ module.exports = function(app, passport) {
 	var post_edit = require('./app/post_edit');
 	app.get('/p/:id/edit', authorization.isLoggedIn, post_edit.render);
 	app.post('/p/:id/edit', authorization.isLoggedIn, post_edit.update);
+
+	var post_delete = require('./app/post_delete');
+	app.get('/p/:id/delete', authorization.isLoggedIn, post_delete.render);
+	app.post('/p/:id/delete', authorization.isLoggedIn, post_delete.update);
 	
 	// About page route
     var about = require('./app/about');

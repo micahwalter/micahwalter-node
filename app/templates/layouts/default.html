@@ -8,7 +8,7 @@
 			{% if user %}
 				<a href="/logout" class="btn btn-lg btn-primary" role="button">Logout</a>
 				<a href="/p/new-post" class="btn btn-lg btn-primary" role="button">New Post</a>
-				{% if title == post.title %}{% if post.user.id == user.id %}<a href="/p/{{ post.id }}/edit" class="btn btn-lg btn-default" role="button">Edit Post</a>{% endif %}{% endif %}
+				{% if title == post.title %}{% if post.user.id == user.id %}<a href="/p/{{ post.id }}/edit" class="btn btn-lg btn-default" role="button">Edit Post</a> <a href="/p/{{ post.id }}/delete" class="btn btn-lg btn-danger" role="button">Delete Post</a>{% endif %}{% endif %}
 			{% endif %}
 			
 					<h1>{{ title }}</h1>

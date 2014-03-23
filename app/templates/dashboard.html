@@ -18,6 +18,9 @@
 					  <tr>
 					    <td><a href="/p/{{ post.id }}">{{ post.title }}</td>
 						<td>{{ post.created|date('F jS, Y') }}</td>
+						<td><a href="/p/{{ post.id }}/edit">Edit</a> | 
+							<a href="/p/{{ post.id }}/delete">Delete</a>
+						</td>
 					  </tr>
 					{% endfor %}
 					</tbody>

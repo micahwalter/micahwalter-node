@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+	<form class="form-horizontal" action="/p/{{ post.id }}/delete" method="post" role="form">
+	<fieldset>
+
+	<!-- Form Name -->
+	<legend>Delete a post</legend>
+
+
+	<!-- Button -->
+	<div class="control-group">
+	  <label class="control-label" for="submit"></label>
+	  <div class="controls">
+	    <button class="btn btn-lg btn-danger">DELETE!!</button>
+		<a href="/p/{{ post.id }}" class="btn btn-lg btn-danger" role="button">Cancel</a>
+	  </div>
+	</div>
+
+	</fieldset>
+	</form>
+	
+{% endblock %}
