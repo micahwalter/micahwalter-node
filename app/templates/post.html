@@ -5,7 +5,7 @@
 		
 					<p>
 						<strong>id</strong>: {{ post.id }}<br>
-						<p>{{ post.content }}</p>
+						<p>{{ post.content|safe }}</p>
 						<p>posted by <a href="/@{{ post.user.twitter.username }}">{{ post.user.twitter.username }}</a></p>
 					</p>
 
