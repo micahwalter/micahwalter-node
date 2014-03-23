@@ -6,7 +6,7 @@
 					<p>
 						<strong>id</strong>: {{ post.id }}<br>
 						<p>{{ post.content|safe }}</p>
-						<p>posted by <a href="/@{{ post.user.twitter.username }}">{{ post.user.twitter.username }}</a></p>
+						<p><a href="/@{{ post.user.twitter.username }}"><img class="img-circle" src="{{ post.user.twitter.profilePhoto }}" /></a> <a href="/@{{ post.user.twitter.username }}"> {{ post.user.twitter.username }}</a></p>
 					</p>
 
 {% endblock %}
