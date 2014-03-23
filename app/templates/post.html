@@ -3,10 +3,12 @@
 
 		<!-- POST INFORMATION -->
 		
-					<p>
+					
 						<strong>id</strong>: {{ post.id }}<br>
-						<p>{{ content|safe }}</p>
-						<p><a href="/@{{ post.user.twitter.username }}"><img class="img-circle" src="{{ post.user.twitter.profilePhoto }}" /></a> <a href="/@{{ post.user.twitter.username }}"> {{ post.user.twitter.username }}</a></p>
-					</p>
+						<div class="content">
+						{{ content|safe }}
+						</div>
+						<a href="/@{{ post.user.twitter.username }}"><img class="img-circle" src="{{ post.user.twitter.profilePhoto }}" /></a> <a href="/@{{ post.user.twitter.username }}"> {{ post.user.twitter.username }}</a>
+					
 
 {% endblock %}
