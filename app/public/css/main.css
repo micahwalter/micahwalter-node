@@ -35,4 +35,6 @@ p {
 .btn {
 	text-shadow: none;
 	background-image: none;
+	border-color: none;
+	-webkit-box-shadow: none;
 }
