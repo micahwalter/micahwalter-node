@@ -9,10 +9,21 @@ module.exports = function(app, passport) {
 
 	// handle the callback after twitter has authenticated the user
 	app.get('/auth/twitter/callback',
-		passport.authenticate('twitter', {
-			successRedirect : '/dashboard',
-			failureRedirect : '/'
-		}));
+		passport.authenticate('twitter', { failureRedirect : '/' }),
+		function(req, res) {
+			if (req.user.profileComplete){
+				res.redirect('/dashboard');
+			} else {
+				res.redirect('/complete-profile');
+			}
+		}
+	
+	);
+	
+	// complete profile
+	var complete_profile = require('./app/complete_profile');
+	app.get('/complete-profile', complete_profile.render);
+	app.post('/complete-profile', authorization.isAuthenticated, complete_profile.update);
 		
 	// logout
 	app.get('/logout', function(req, res) {

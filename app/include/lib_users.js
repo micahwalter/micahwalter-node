@@ -2,7 +2,9 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
-    twitter          : {
+    email        : String,
+	profileComplete : String,
+	twitter          : {
         id           : String,
         token        : String,
         displayName  : String,
@@ -19,6 +21,12 @@ var userSchema = mongoose.Schema({
 
 userSchema.statics.findByName = function (username, cb, err) {
   this.findOne({ 'twitter.username': username }, cb);
+}
+
+// ************************************************************** //
+
+userSchema.statics.findByID = function (id, cb, err) {
+  this.findOne({ '_id': id }, cb);
 }
 
 // ************************************************************** //

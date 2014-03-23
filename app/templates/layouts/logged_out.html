@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+	{% include '../includes/head.html' %}
+	<body>
+		<div class="container">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			
+					<h1>{{ title }}</h1>
+	
+					{% if user %}
+					<p>Hello, {{ user.twitter.displayName }}</p>
+			{% endif %}
+						
+		    {% block content %}{% endblock %}
+			</div>
+		</div>
+	{% include '../includes/foot.html' %}
+    </body>
+</html>
