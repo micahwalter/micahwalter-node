@@ -1,5 +1,6 @@
 var authorization = require('./middlewares/authorization');
 
+
 module.exports = function(app, passport) {
 	    
 	
@@ -38,6 +39,10 @@ module.exports = function(app, passport) {
 	
 	var post = require('./app/post');
 	app.get('/p/:id', post.render)
+
+	var post_edit = require('./app/post_edit');
+	app.get('/p/:id/edit', authorization.isLoggedIn, post_edit.render);
+	app.post('/p/:id/edit', authorization.isLoggedIn, post_edit.update);
 	
 	// About page route
     var about = require('./app/about');
