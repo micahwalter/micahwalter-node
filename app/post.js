@@ -1,3 +1,4 @@
+var marked = require('marked');
 var Post = require('./include/lib_posts');
 
 exports.render = function(req, res) {
@@ -16,7 +17,8 @@ exports.render = function(req, res) {
 		} else {
 			res.render('post', {
 				user : req.user,
-				post : post, 
+				post : post,
+				content: marked(post.content), 
 				title: post.title 
 			});
 		

@@ -1,5 +1,3 @@
-var marked = require('marked');
-
 var mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
     _ = require('lodash');
@@ -19,7 +17,7 @@ exports.create = function(req, res) {
     var post = new Post();
     post.user = req.user;
 	post.title = req.body.title;
-	post.content = marked(req.body.content);
+	post.content = req.body.content;
 
     post.save(function(err) {
         if (err) {
