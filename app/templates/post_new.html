@@ -1,26 +1,25 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
 
-	<form  action="/p/new-post" method="post" >
+	<form class="form-horizontal" action="/p/new-post" method="post" role="form">
 	<fieldset>
 
 	<!-- Form Name -->
 	<legend>Create a post</legend>
 
 	<!-- Text input-->
-	<div class="input-group">
-	  <label class="control-label" for="title">Title</label>
-	  <div class="form control">
+	<div class="form-group">
+	  <label class="col-sm-2 control-label" for="title">Title</label>
+	  <div class="col-sm-10">
 	    <input id="title" name="title" type="text" placeholder="" class="form-control" required="">
     
 	  </div>
 	</div>
 
 	<!-- Textarea -->
-	<div class="input-group">
-	  <label class="input-label" for="content"></label>
-	  <div class="form control">                     
-	    <textarea id="content" name="content"></textarea>
+	<div class="form-group">
+	  <div class="col-sm-12">                     
+	    <textarea class="form-control" rows="10" id="content" name="content"></textarea>
 	  </div>
 	</div>
 
@@ -35,4 +34,5 @@
 
 	</fieldset>
 	</form>
+	
 {% endblock %}
