@@ -24,6 +24,10 @@ module.exports = function(app, passport) {
 	var complete_profile = require('./app/complete_profile');
 	app.get('/complete-profile', complete_profile.render);
 	app.post('/complete-profile', authorization.isAuthenticated, complete_profile.update);
+
+	// signin
+    var signin = require('./app/signin');
+	app.get('/signin', signin.render);
 		
 	// logout
 	app.get('/logout', function(req, res) {
