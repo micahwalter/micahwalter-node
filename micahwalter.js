@@ -74,12 +74,26 @@ app.use(function(err, req, res, next) {
     });
 });
 
+var BrokenLinks = mongoose.model('BrokenLinks', {
+        text : String,
+        time : { type : Date, default: Date.now }
+});
+
 // Assume 404 since no middleware responded
 app.use(function(req, res) {
-    res.status(404).render('404', {
-        url: req.originalUrl,
-        error: 'Not found'
-    });
+    BrokenLinks.create({
+            text : req.path,
+            done : false
+    }, function(err) {
+        if (err) {
+        	res.send(err);
+		} else {
+		    res.status(404).render('404', {
+		        url: req.originalUrl,
+		        error: 'Not found'
+		    });
+		}
+	});
 });
 
 
