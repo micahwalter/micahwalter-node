@@ -3,6 +3,6 @@ exports.render = function(req, res) {
 		res.redirect('/dashboard');
 	
     res.render('index', { 
-		title : 'Hello World'
+		title : 'Home'
 	 });
 };

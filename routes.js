@@ -67,4 +67,9 @@ module.exports = function(app, passport) {
     var about = require('./app/about');
     app.get('/about', about.render);
 	
+	// Redirects
+	app.get('/post/:id/:title?*', function(req, res) {
+		res.redirect('http://micahwalter.tumblr.com/post/' + req.params['id'] + '/' + req.params['title'] );
+	});
+	
 };
