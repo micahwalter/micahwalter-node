@@ -9,7 +9,8 @@
 						<strong>display name</strong>: {{ user.twitter.displayName }}<br>
 						<strong>description</strong>: {{ user.twitter.description }}<br>
 						<strong>username</strong>: <a href="/@{{ user.twitter.username }}">{{ user.twitter.username }}</a><br />
-						<img class="img-circle" src="{{ user.twitter.profilePhoto }}" />
+						<img class="img-circle" src="{{ user.twitter.profilePhoto }}" /><br />
+						<blockquote>{{ wwms.says }}</blockquote>
 					</p>
 					
 					<table class="table table-striped">
