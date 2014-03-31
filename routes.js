@@ -38,6 +38,13 @@ module.exports = function(app, passport) {
 	// Home route
     var index = require('./app/index');
     app.get('/', index.render);
+	
+	// API
+	var api = require('./app/api_rest');
+	app.get('/rest', api.call);
+	
+	var api_posts = require('./app/api_posts');
+	app.get('/rest/post', api_posts.getInfo);
 			
     // Dashboard route
     var dashboard = require('./app/dashboard');
