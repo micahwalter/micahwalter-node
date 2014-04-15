@@ -1,8 +1,8 @@
 body {
-	padding-top: 40px;
-	padding-bottom: 40px;
+/*	padding-top: 40px;*/
+/*	padding-bottom: 40px;*/
 	background-color: #fff;
-	margin: 0 auto;
+/*	margin: 0 auto;*/
 }
 
 h1 {
@@ -21,6 +21,9 @@ p {
 	line-height: 1.5;
 }
 
+.container {
+	padding-top: 40px;
+}
 .content img {
    display: block;
    height: auto;

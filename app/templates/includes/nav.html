@@ -1,0 +1,10 @@
+	    <div class="navmenu navmenu-default navmenu-fixed-left">
+	       <ul class="nav navmenu-nav">
+	         <li class="active"><a href="/"><span class="fa fa-home"></span> Home</a></li>
+	         {% if !user %}<li><a href="/auth/twitter"><span class="fa fa-twitter"></span> Sign in with Twitter</a></li>{% endif %}
+	       	{% if user %}
+					<li><a href="/@{{ user.twitter.username }}"><span class="fa fa-user"></span> {{ user.twitter.displayName }}</a></li>
+					<li><a href="/p/new-post"><span class="fa fa-edit"></span> New post</a></li>
+					{% endif %}
+			  </ul>
+	     </div>
