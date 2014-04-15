@@ -3,7 +3,7 @@
 	{% include '../includes/head.html' %}
 	<body>
 		{% include '../includes/nav.html' %}
-		 
+
 	     <div class="canvas">
 	       <div class="navbar navbar-default navbar-fixed-top">
 	         <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
@@ -12,22 +12,11 @@
 	           <span class="icon-bar"></span>
 	         </button>
 	       </div>
-		 
+
 		<div class="container">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			{% if !user %}<a href="/auth/twitter" class="btn btn-lg btn-primary" role="button"><span class="fa fa-twitter"></span> Sign In</a>{% endif %}
-			{% if user %}
-				<a href="/logout" class="btn btn-lg btn-primary" role="button">Logout</a>
-				<a href="/p/new-post" class="btn btn-lg btn-primary" role="button">New Post</a>
-				{% if title == post.title %}{% if post.user.id == user.id %}<a href="/p/{{ post.id }}/edit" class="btn btn-lg btn-default" role="button">Edit Post</a> <a href="/p/{{ post.id }}/delete" class="btn btn-lg btn-danger" role="button">Delete Post</a>{% endif %}{% endif %}
-			{% endif %}
-			
 					<h1>{{ title }}</h1>
-	
-					{% if user %}
-					<p>Hello, {{ user.twitter.displayName }}</p>
-			{% endif %}
-						
+
 		    {% block content %}{% endblock %}
 			</div>
 		</div>
