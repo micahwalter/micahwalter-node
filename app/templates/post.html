@@ -5,5 +5,6 @@
 						{{ content|safe }}
 						</div>
 						<a href="/@{{ post.user.twitter.username }}"><img class="img-circle" src="{{ post.user.twitter.profilePhoto }}" /></a> <a href="/@{{ post.user.twitter.username }}"> {{ post.user.twitter.username }}</a>
+						{% if user %}<br /><br /><a href="/p/{{ post.id }}/edit" class="btn btn-lg btn-default" role="button">Edit</a>{% endif %}
 
 {% endblock %}
