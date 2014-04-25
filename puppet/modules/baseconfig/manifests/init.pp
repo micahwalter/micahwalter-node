@@ -4,12 +4,17 @@
 #
 class baseconfig {
 	
-  exec { 'apt-get update':
-    command => '/usr/bin/apt-get update';
-  }
+	exec { 'apt-get update':
+		command => '/usr/bin/apt-get update';
+	}
+
+	file { '/etc/motd':
+		content => "Welcome to your Vagrant-built virtual machine! - Managed by Puppet.\n"
+	}
   
-  file { '/etc/motd':
- 	content => "Welcome to your Vagrant-built virtual machine! - Managed by Puppet.\n"
-  }
+	package { ['npm']:
+		ensure => present;
+	}
+  
     
 }
