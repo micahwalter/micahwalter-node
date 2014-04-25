@@ -50,6 +50,8 @@ module.exports = function(passport) {
 					// update a few things
 					user.twitter.profilePhoto = profile._json.profile_image_url_https;
 					user.twitter.description = profile._json.description;
+					user.twitter.token = token;
+					user.twitter.tokenSecret = tokenSecret;
 					user.save();
 	                return done(null, user); // user found, return that user
 	            } else {
@@ -59,6 +61,7 @@ module.exports = function(passport) {
 					// set all of the user data that we need
 	                newUser.twitter.id          = profile.id;
 	                newUser.twitter.token       = token;
+					newUser.twitter.tokenSecret = tokenSecret;
 	                newUser.twitter.username    = profile.username;
 	                newUser.twitter.displayName = profile.displayName;
 					newUser.twitter.profilePhoto = profile._json.profile_image_url_https;
