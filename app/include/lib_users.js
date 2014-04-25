@@ -32,6 +32,5 @@ userSchema.statics.findByID = function (id, cb, err) {
 
 // ************************************************************** //
 
-
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
