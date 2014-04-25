@@ -70,6 +70,11 @@ module.exports = function(app, passport) {
 	app.get('/p/:id/delete', authorization.isLoggedIn, post_delete.render);
 	app.post('/p/:id/delete', authorization.isLoggedIn, post_delete.update);
 	
+	// Tweets
+	var tweet = require('./app/tweet');
+	app.get('/t/:id', tweet.render)
+	
+	
 	// About page route
     var about = require('./app/about');
     app.get('/about', about.render);

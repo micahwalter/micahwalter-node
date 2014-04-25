@@ -16,6 +16,11 @@ var TweetSchema = new Schema({
     }
 });
 
+// ************************************************************** //
+
+TweetSchema.statics.findByID = function (id, cb, err) {
+  this.findOne({ '_id': id }, cb).populate('user', 'twitter');
+}
 
 // create the model for posts and expose it to our app
 module.exports = mongoose.model('Tweet', TweetSchema);
