@@ -15,10 +15,11 @@ var jobs = 0;
 function processUsers(err, users) {
 	if (err) return console.error(err);
 
-	//console.log(Object.keys(users).length);
+	
 	
 	for(var user in users){
-  	  
+  	  	console.log("updating tweets for: " + users[user].twitter.username);
+		
 		var T = new Twit({
 			consumer_key:         configAuth.twitterAuth.consumerKey,
 			consumer_secret:      configAuth.twitterAuth.consumerSecret,
@@ -39,6 +40,10 @@ function processUsers(err, users) {
 function processTweets(err, statuses) {
 	
 	jobs = jobs + Object.keys(statuses).length;
+	
+	if ( mongoose.connection.readyState == 0){
+		mongoose.connect(configDB.url);
+	}
 	
 	for(var tweet in statuses){
 		var query = {tweet_id:statuses[tweet].id_str}
