@@ -8,8 +8,14 @@ mongoose.connect(configDB.url);
 var User = require('../app/include/lib_users');
 var Tweet = require('../app/include/lib_tweets');
 
-User.find(function (err, users) {
+User.find(processUsers);
+
+var jobs = 0;
+
+function processUsers(err, users) {
 	if (err) return console.error(err);
+
+	//console.log(Object.keys(users).length);
 	
 	for(var user in users){
   	  
@@ -24,14 +30,32 @@ User.find(function (err, users) {
 			user_id: users[user].twitter.id,
 			count: 200,
 		};
-		
-		T.get('statuses/user_timeline', args,  function (err, statuses) {
-			for(var tweet in statuses){
-				console.log(statuses[tweet].id_str + ": " + statuses[tweet].text);  
-			};	
-			console.log("Done");	
-		});	
 
+		T.get('statuses/user_timeline', args, processTweets );	
+	};
+
+}
+
+function processTweets(err, statuses) {
+	
+	jobs = jobs + Object.keys(statuses).length;
+	
+	for(var tweet in statuses){
+		var query = {tweet_id:statuses[tweet].id_str}
+		var updateTweet = {};
+		updateTweet.tweet_id = statuses[tweet].id_str;
+		updateTweet.tweet = statuses[tweet];
+		 
+		Tweet.findOneAndUpdate(query, updateTweet, {upsert:true}, function(err, doc) {
+			if (err) return console.error(err);
+			console.log("Updating: "+ doc.tweet_id);
+			
+			// manage the closing of the db connection when everything is done, maybe?
+			jobs = jobs - 1;
+			if ( jobs == 0 ){
+				mongoose.connection.close();
+			}
+		});
 	};	
-	mongoose.connection.close();
-});
+				
+}

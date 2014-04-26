@@ -7,12 +7,12 @@ var TweetSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    content: {
+	tweet_id: {
+		type: String,
+		unique: true
+	},
+    tweet: {
         type: Object
-    },
-    user: {
-        type: Schema.ObjectId,
-        ref: 'User'
     }
 });
 
