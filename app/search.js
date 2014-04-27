@@ -30,7 +30,6 @@ exports.render = function(req, res) {
 	elasticSearchClient.search('tweets', qryObj)
 	    .on('data', function (data) {
 			var result = JSON.parse(data);
-			//res.send(result.hits);
 			res.render('search', {
 				title : req.params['query'],
 				results : result.hits.hits
