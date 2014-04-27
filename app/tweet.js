@@ -15,6 +15,7 @@ exports.render = function(req, res) {
 	    
 		} else {
 			res.render('tweet', {
+				title : req.params['id'],
 				user : req.user,
 				tweet : tweet
 			});

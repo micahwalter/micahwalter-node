@@ -3,6 +3,20 @@
 
 						<div class="content">
 						<p>{{ tweet.tweet.text|safe }}</p>
+						{% if tweet.tweet.geo %}
+						<div id="map" style="height: 240px;"></div>						
+						{% endif %}
 						</div>
+						
+						
+						<script>
+
+								var map = L.map('map').setView([{{tweet.tweet.geo.coordinates['0']}}, {{tweet.tweet.geo.coordinates['1']}}], 16);
+								L.tileLayer('https://ssl_tiles.cloudmade.com/2ba6f5e2548f41589d783ac97e57b387/44094/256/{z}/{x}/{y}.png', {
+								    maxZoom: 18
+								}).addTo(map);
+								var marker = L.marker([{{tweet.tweet.geo.coordinates['0']}}, {{tweet.tweet.geo.coordinates['1']}}]).addTo(map);
+
+						</script>
 						
 {% endblock %}
