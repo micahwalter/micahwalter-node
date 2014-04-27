@@ -20,6 +20,7 @@ exports.render = function(req, res) {
 	// ************************************************************** //
 	
 	var qryObj = {
+		"from" : 0, "size" : 20, // we're going ot need some kind of pagination stuff here, eventually
 	    "query":{
 	        "query_string":{
 	            "query": req.params['query']
@@ -30,6 +31,7 @@ exports.render = function(req, res) {
 	elasticSearchClient.search('tweets', qryObj)
 	    .on('data', function (data) {
 			var result = JSON.parse(data);
+
 			res.render('search', {
 				title : req.params['query'],
 				results : result.hits.hits
