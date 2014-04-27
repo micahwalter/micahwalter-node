@@ -8,6 +8,11 @@ class { 'baseconfig':
   stage => 'pre'
 }
 
+# add the stdlib module to the new 'pre' run stage
+class { 'stdlib':
+  stage => 'pre'
+}
+
 # set defaults for file ownership/permissions
 File {
   owner => 'root',
@@ -15,4 +20,4 @@ File {
   mode  => '0644',
 }
 
-include baseconfig, nodejs
+include baseconfig, stdlib, nodejs, mongodb
