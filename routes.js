@@ -73,6 +73,10 @@ module.exports = function(app, passport) {
 	// Tweets
 	var tweet = require('./app/tweet');
 	app.get('/t/:id', tweet.render)
+
+	// Search
+	var search = require('./app/search');
+	app.get('/search/:query', search.render)
 	
 	
 	// About page route

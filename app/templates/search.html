@@ -1,0 +1,12 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+						<div class="content">
+						{% for result in results %}
+						<pre><a href="/t/{{ result._id }}">{{ result._id }}</a></pre>
+						{% endfor %}
+					</div>
+						
+
+						
+{% endblock %}

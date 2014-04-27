@@ -26,6 +26,7 @@
     "lodash": "~2.4.1",
     "marked": "~0.3.2",
     "mandrill-api": "~1.0.39",
-    "twit": "~1.1.14"
+    "twit": "~1.1.14",
+    "elasticsearchclient": "~0.5.3"
   }
 }

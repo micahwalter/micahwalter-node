@@ -13,6 +13,10 @@ var TweetSchema = new Schema({
 	},
     tweet: {
         type: Object
+    },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User'
     }
 });
 
