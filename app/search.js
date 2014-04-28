@@ -28,14 +28,14 @@ exports.render = function(req, res) {
 	    }
 	};
 
-	elasticSearchClient.search('test', qryObj)
+	elasticSearchClient.search('main', qryObj)
 	    .on('data', function (data) {
 			var result = JSON.parse(data);
-			res.send(data);
-			// res.render('search', {
-			// 	title : req.params['query'],
-			// 	results : result.hits.hits
-			// });
+			//res.send(data);
+			res.render('search', {
+				title : req.params['query'],
+				results : result.hits.hits
+			});
 	    }).on('error', function (error) {
 	            console.log(error)
 	    }).exec()
