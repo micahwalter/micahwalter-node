@@ -3,7 +3,7 @@
 
 						<div class="content">
 						{% for result in results %}
-						<pre><a href="/t/{{ result._id }}">{{ result._id }}</a> - {{ result.tweet.text }}</pre>
+						<pre><a href="/t/{{ result._id }}">{{ result._id }}</a> - {{ result._source.tweet.text }}</pre>
 						{% endfor %}
 					</div>
 						
