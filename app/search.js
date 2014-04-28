@@ -28,7 +28,7 @@ exports.render = function(req, res) {
 	    }
 	};
 
-	elasticSearchClient.search('tweets', qryObj)
+	elasticSearchClient.search('test', qryObj)
 	    .on('data', function (data) {
 			var result = JSON.parse(data);
 
