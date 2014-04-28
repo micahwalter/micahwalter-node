@@ -11,9 +11,10 @@
 						{% if tweet.tweet.geo %}
 						<script>
 								var map = L.mapbox.map('map', 'micahwalter.i3l7f0o7').setView([{{tweet.tweet.geo.coordinates['0']}}, {{tweet.tweet.geo.coordinates['1']}}], 16);
-								// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-// 								    maxZoom: 18
-// 								}).addTo(map);
+								L.tileLayer('http://a.tiles.mapbox.com/v3/micahwalter.i3l7f0o7.json', {
+								    format: 'png256'
+								}).addTo(map);
+								
 								var marker = L.marker([{{tweet.tweet.geo.coordinates['0']}}, {{tweet.tweet.geo.coordinates['1']}}]).addTo(map);
 
 						</script>

@@ -28,6 +28,7 @@ function processTweets(err, statuses) {
 	
 	for(var tweet in statuses){
 		var theTweet = statuses[tweet].tweet;
+		theTweet.mjw_id = statuses[tweet]._id;
 		theTweet.tweet_id = statuses[tweet].id_str;
 		
 		elasticSearchClient.index('test', 'test2', theTweet)
