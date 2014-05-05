@@ -1,8 +1,4 @@
 body {
-/*	padding-top: 40px;*/
-/*	padding-bottom: 40px;*/
-	background-color: #fff;
-/*	margin: 0 auto;*/
 }
 
 h1 {
@@ -22,7 +18,7 @@ p {
 }
 
 .container {
-	padding-top: 40px;
+/*	padding-top: 40px;*/
 }
 .content img {
    display: block;
@@ -40,4 +36,17 @@ p {
 	background-image: none;
 	border-color: none;
 	-webkit-box-shadow: none;
+}
+
+/*p {
+	font-family: "adobe-garamond-pro", serif;	
+	margin-top: 2em;
+	margin-bottom: 2em;
+	line-height: 1.6em;
+	font-size: 20px;
+}
+*/
+.navbar-default {
+	background-color: transparent; */
+	border-color: #e7e7e7;
 }
