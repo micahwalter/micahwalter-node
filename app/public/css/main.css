@@ -2,11 +2,11 @@ body {
 }
 
 h1 {
-	font-family: "museo-sans",sans-serif;
+/*	font-family: "museo-sans",sans-serif;
 	font-style: normal;
 	font-weight: 900;
 	font-size: 46px;
-}
+*/}
 p {
 	color: #333332;
 	font-family: "adobe-garamond-pro", serif;
@@ -49,4 +49,8 @@ p {
 .navbar-default {
 	background-color: transparent; */
 	border-color: #e7e7e7;
+}
+
+.default-footer p {
+	font-size: 16px;
 }
