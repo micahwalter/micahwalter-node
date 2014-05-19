@@ -23,7 +23,7 @@ TweetSchema.statics.findByID = function (id, cb, err) {
 }
 
 TweetSchema.statics.findByUserID = function(username, cb, err){
-	this.find({'tweet.user.screen_name':username}, null, {sort: {'tweet.created_at':-1}}, cb);
+	this.find({'tweet.user.screen_name':username}, null, {sort: {'tweet.id':-1}}, cb);
 }
 
 // create the model for posts and expose it to our app
