@@ -14,7 +14,7 @@ exports.render = function(req, res) {
 		    });
 	    
 		} else {
-			var sorted = tweets.sort("tweet.created_at",-1);
+			var sorted = tweets.sort("tweet.created_at",1);
 			res.render('tweets', {
 				title : req.params['username'],
 				user : req.user,
