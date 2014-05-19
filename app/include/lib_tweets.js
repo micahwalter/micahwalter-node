@@ -19,11 +19,12 @@ var TweetSchema = new Schema({
 // ************************************************************** //
 
 TweetSchema.statics.findByID = function (id, cb, err) {
-  this.findOne({ '_id': id }, cb).populate('user', 'twitter');
+	this.findOne({ '_id': id }, cb).populate('user', 'twitter');
 }
 
-TweetSchema.statics.findByUserID = function(username, cb, err){
-	this.find({'tweet.user.screen_name':username}, null, {sort: {'tweet.id':-1}}, cb);
+TweetSchema.statics.findByUserID = function findByUserID(username, page, cb, err){
+	// ahh this i smuch better / fix above
+	return this.find({'tweet.user.screen_name':username}).sort({'tweet.id':-1}).skip(10*(page-1)).limit(10).exec(cb);
 }
 
 // create the model for posts and expose it to our app

@@ -71,7 +71,7 @@ module.exports = function(app, passport) {
 	app.get('/t/:id', tweet.render);
 	
 	var tweets = require('./app/tweets');
-	app.get('/@:username/tweets', tweets.render);
+	app.get('/@:username/tweets/:page?', tweets.render);
 
 	// Search
 	var search_form = require('./app/search_form');

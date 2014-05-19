@@ -4,7 +4,13 @@ exports.render = function(req, res) {
 	
 	// ************************************************************** //
 	
-	Tweets.findByUserID(req.params['username'], function (err, tweets) {
+	if ( req.params['page'] ){
+		page = req.params['page'];
+	} else {
+		page = 1;
+	}
+	
+	Tweets.findByUserID(req.params['username'], req.params['page'], function (err, tweets) {
 	
 	    if ( !tweets ){
 		
@@ -14,11 +20,17 @@ exports.render = function(req, res) {
 		    });
 	    
 		} else {
-
+			//var count = Object.keys(tweets).length;
+			
+			//res.send(tweets);
 			res.render('tweets', {
 				title : req.params['username'],
 				user : req.user,
-				tweets : tweets
+				tweets : tweets,
+				page : req.params['page'],
+				//count: count,
+				//pages: Math.ceil(count / 10), // for now 10 per page...
+				
 			});
 		
 		}

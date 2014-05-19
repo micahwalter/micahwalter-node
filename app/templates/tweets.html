@@ -2,6 +2,8 @@
 {% block content %}
 
 							<div class="content">
+							<h3>There are {{ count }} tweets</h3>
+							<p>This is page {% if page %}{{ page }}{% else %}1{% endif %} of {{ pages }}</p> 	
 							{% for tweet in tweets %}
 							<pre><a href="/t/{{ tweet.id }}">{{ tweet.id }}</a> - {{ tweet.tweet.text }}</pre>
 							{% endfor %}
