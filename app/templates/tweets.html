@@ -1,0 +1,10 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+							<div class="content">
+							{% for tweet in tweets %}
+							<pre><a href="/t/{{ tweet.id }}">{{ tweet.id }}</a> - {{ tweet.tweet.text }}</pre>
+							{% endfor %}
+						</div>
+						
+{% endblock %}

@@ -56,7 +56,7 @@ module.exports = function(app, passport) {
 	app.post('/p/new-post', authorization.isLoggedIn, post_new.create);
 	
 	var post = require('./app/post');
-	app.get('/p/:id', post.render)
+	app.get('/p/:id', post.render);
 
 	var post_edit = require('./app/post_edit');
 	app.get('/p/:id/edit', authorization.isLoggedIn, post_edit.render);
@@ -68,7 +68,10 @@ module.exports = function(app, passport) {
 	
 	// Tweets
 	var tweet = require('./app/tweet');
-	app.get('/t/:id', tweet.render)
+	app.get('/t/:id', tweet.render);
+	
+	var tweets = require('./app/tweets');
+	app.get('/@:username/tweets', tweets.render);
 
 	// Search
 	var search_form = require('./app/search_form');

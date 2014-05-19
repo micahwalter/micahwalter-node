@@ -22,5 +22,9 @@ TweetSchema.statics.findByID = function (id, cb, err) {
   this.findOne({ '_id': id }, cb).populate('user', 'twitter');
 }
 
+TweetSchema.statics.findByUserID = function(username, cb, err){
+	this.find({'tweet.user.screen_name':username}, cb);
+}
+
 // create the model for posts and expose it to our app
 module.exports = mongoose.model('Tweet', TweetSchema);
