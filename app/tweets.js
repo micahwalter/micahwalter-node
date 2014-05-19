@@ -14,11 +14,11 @@ exports.render = function(req, res) {
 		    });
 	    
 		} else {
-			var sorted = tweets.sort("tweet.id",-1);
+
 			res.render('tweets', {
 				title : req.params['username'],
 				user : req.user,
-				tweets : sorted
+				tweets : tweets
 			});
 		
 		}
