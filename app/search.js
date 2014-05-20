@@ -18,9 +18,16 @@ var elasticSearchClient = new ElasticSearchClient(serverOptions);
 exports.render = function(req, res) {
 	
 	// ************************************************************** //
+	if ( req.params['page'] ){
+		from = ((req.params['page']-1) * 20);
+		page = req.params['page']
+	} else {
+		from = 0;
+		page = 1;
+	}
 	
 	var qryObj = {
-		"from" : 0, "size" : 20, // we're going ot need some kind of pagination stuff here, eventually
+		"from" : from, "size" : 20, // we're going ot need some kind of pagination stuff here, eventually
 	    "query":{
 	        "query_string":{
 	            "query": req.params['query']
@@ -31,10 +38,14 @@ exports.render = function(req, res) {
 	elasticSearchClient.search('main', qryObj)
 	    .on('data', function (data) {
 			var result = JSON.parse(data);
-			//res.send(data);
+			//res.send(result);
 			res.render('search', {
 				title : req.params['query'],
-				results : result.hits.hits
+				results : result.hits.hits,
+				page : req.params['page'],
+				count: result.hits.total,
+				next_page: parseInt(page) + 1,
+				pages: Math.ceil(result.hits.total / 20),
 			});
 	    }).on('error', function (error) {
 	            console.log(error)

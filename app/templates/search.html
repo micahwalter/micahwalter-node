@@ -2,9 +2,19 @@
 {% block content %}
 
 						<div class="content">
+						<h3>There are {{ count }} results</h3>
+						<p>This is page {% if page %}{{ page }}{% else %}1{% endif %} of {{ pages }}</p>
 						{% for result in results %}
 						<pre><a href="/t/{{ result._id }}">{{ result._id }}</a> - {{ result._source.tweet.text }}</pre>
 						{% endfor %}
+						
+						{% if pages > 1 %}
+						<ul class="pagination">
+						  {% if page > 1 %}<li><a href="/search/{{ title }}/{{ page-1 }}">&laquo;</a></li>{% endif %}
+						  {% if page < pages %}<li><a href="/search/{{ title }}/{{ next_page }}">&raquo;</a></li>{% endif %}
+						</ul>
+						{% endif %}
+						
 					</div>
 						
 

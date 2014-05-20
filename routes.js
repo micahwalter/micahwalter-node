@@ -79,7 +79,7 @@ module.exports = function(app, passport) {
 	app.post('/search', search_form.search);
 	
 	var search = require('./app/search');
-	app.get('/search/:query', search.render);
+	app.get('/search/:query/:page?', search.render);
 	
 	
 	// About page route

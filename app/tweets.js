@@ -29,7 +29,6 @@ exports.render = function(req, res) {
 						tweets : tweets,
 						page : req.params['page'],
 						count: count,
-						abs_base_url: req,
 						next_page: parseInt(page) + 1,
 						pages: Math.ceil(count / 10), // for now 10 per page...
 				
