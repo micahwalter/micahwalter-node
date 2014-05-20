@@ -3,6 +3,7 @@
 
 						<div class="content">
 						<p>{{ tweet.tweet.text|safe }}</p>
+					
 						{% if tweet.tweet.geo %}
 						<div id="map" style="height: 240px;"></div>						
 						{% endif %}
