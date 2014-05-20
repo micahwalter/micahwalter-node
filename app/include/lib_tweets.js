@@ -24,8 +24,12 @@ TweetSchema.statics.findByID = function (id, cb, err) {
 
 TweetSchema.statics.findByUserID = function findByUserID(username, page, cb, err){
 	// ahh this i smuch better / fix above
-	return this.find({'tweet.user.screen_name':username}).sort({'tweet.id':-1}).skip(10*(page-1)).limit(10).exec(cb);
+	this.find({'tweet.user.screen_name':username}).sort({'tweet.id':-1}).skip(10*(page-1)).limit(10).exec(cb);
 }
 
+TweetSchema.statics.countByUserID = function countByUserID(username, page, cb, err){
+	// ahh this i smuch better / fix above
+	this.count({'tweet.user.screen_name':username}).exec(cb);
+}
 // create the model for posts and expose it to our app
 module.exports = mongoose.model('Tweet', TweetSchema);

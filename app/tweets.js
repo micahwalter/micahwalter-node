@@ -20,17 +20,19 @@ exports.render = function(req, res) {
 		    });
 	    
 		} else {
-			//var count = Object.keys(tweets).length;
 			
-			//res.send(tweets);
-			res.render('tweets', {
-				title : req.params['username'],
-				user : req.user,
-				tweets : tweets,
-				page : req.params['page'],
-				//count: count,
-				//pages: Math.ceil(count / 10), // for now 10 per page...
+			Tweets.countByUserID(req.params['username'], req.params['page'], function (err, count) {
+					//res.send(tweets);
+					res.render('tweets', {
+						title : req.params['username'],
+						user : req.user,
+						tweets : tweets,
+						page : req.params['page'],
+						count: count,
+						next_page: parseInt(page) + 1,
+						pages: Math.ceil(count / 10), // for now 10 per page...
 				
+					});
 			});
 		
 		}
