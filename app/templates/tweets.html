@@ -7,12 +7,11 @@
 							{% for tweet in tweets %}
 							<pre><a href="/t/{{ tweet.id }}">{{ tweet.id }}</a> - {{ tweet.tweet.text }}</pre>
 							{% endfor %}
-							
+
 							{% if pages > 1 %}
 							<ul class="pagination">
-							  {% if page > 1 %}<li><a href="./{{ page-1 }}">&laquo;</a></li>
-							  {% if page < pages %}<li><a href="./{{ next_page }}">&raquo;</a></li>{% endif %}
-							  {% else %}<li><a href="./tweets/{{ next_page }}">&raquo;</a></li>{% endif %}
+							  {% if page > 1 %}<li><a href="/@{{ username }}/tweets/{{ page-1 }}">&laquo;</a></li>{% endif %}
+							  {% if page < pages %}<li><a href="/@{{ username }}/tweets/{{ next_page }}">&raquo;</a></li>{% endif %}
 							</ul>
 							{% endif %}
 							
