@@ -11,6 +11,10 @@ var TweetSchema = new Schema({
 		type: String,
 		unique: true
 	},
+	artisanal_id: {
+		type: String,
+		unique: true
+	},
     tweet: {
         type: Object
     },
