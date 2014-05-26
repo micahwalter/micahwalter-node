@@ -34,14 +34,7 @@ module.exports = function(app, passport) {
 	// Home route
     var index = require('./app/index');
     app.get('/', index.render);
-	
-	// API
-	var api = require('./app/api_rest');
-	app.get('/rest', api.call);
-	
-	var api_posts = require('./app/api_posts');
-	app.get('/rest/post', api_posts.getInfo);
-			
+				
     // Dashboard route
     var dashboard = require('./app/dashboard');
     app.get('/dashboard', authorization.isLoggedIn, dashboard.render);
@@ -90,5 +83,23 @@ module.exports = function(app, passport) {
 	app.get('/post/:id/:title?*', function(req, res) {
 		res.redirect('http://micahwalter.tumblr.com/post/' + req.params['id'] + '/' + req.params['title'] );
 	});
+	
+	/***********************************************************/
+	
+	// API Documentation
+	
+	var api = require('./app/api');
+	app.get('/api', api.render);
+	
+	var api_methods = require('./app/api_methods');
+	app.get('/api/methods', api_methods.render);
+
+	var api_method = require('./app/api_method');
+	app.get('/api/methods/:method', api_method.render);
+
+	// The API
+	
+	var api_rest = require('./app/api_rest');
+	app.all('/rest/:query?', api_rest.call);
 	
 };
