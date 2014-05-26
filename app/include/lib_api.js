@@ -1,7 +1,6 @@
-exports.dispatch = function(query, req, res) {
+exports.dispatch = function(query) {
 	
 	var method = query.method;
-	// send something back...	
-	res.send(method);
+	return method;
 	
 };
