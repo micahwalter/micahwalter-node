@@ -6,9 +6,7 @@ exports.call = function(req, res) {
 			
 	var api = require('./include/lib_api');
 	
-	res.send({
-		'rsp': api.dispatch(query),
-	});
+	res.send(api.dispatch(query));
 	
 	
 	
