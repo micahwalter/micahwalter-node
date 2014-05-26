@@ -2,9 +2,8 @@
 {% block content %}
 
 {% for method in methods %}
-<pre>
-{{ method|json(4) }}
-</pre>
+<p><a href="/api/methods/{{ method.name }}">{{ method.name }}</a><br />
+{{ method.description }}</p>
 {% endfor %}
 
 {% endblock %}
