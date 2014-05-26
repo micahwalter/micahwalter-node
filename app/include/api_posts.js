@@ -1,4 +1,4 @@
-var Post = require('./include/lib_posts');
+var Post = require('./lib_posts');
 
 exports.getInfo = function(req, res) {
 	
