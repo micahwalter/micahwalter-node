@@ -4,12 +4,8 @@ exports.call = function(req, res) {
 	var url_parts = url.parse(req.url, true);
 	var query = url_parts.query;
 			
-	res.send({
-		method:query.method,
-		stat:'error', 
-		error:{
-			code:404, 
-			error:'Method not found', 
-			message:"Method not found"
-		}});
+	var api = require('./include/lib_api');
+	
+	api.dispatch(query, req, res);
+	
 };

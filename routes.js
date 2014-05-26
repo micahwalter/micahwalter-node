@@ -99,7 +99,7 @@ module.exports = function(app, passport) {
 
 	// The API
 	
-	var api_rest = require('./app/include/api_rest');
+	var api_rest = require('./app/api_rest');
 	app.all('/rest/:query?', api_rest.call);
 	
 };
