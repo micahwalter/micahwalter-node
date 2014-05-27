@@ -6,6 +6,8 @@ exports.dispatch = function(query) {
 	
 	var method = query.method;
 	
+	// TODO: deal with the rest of the arguments...?? 
+	
 	// TODO: get api key / token
 	
 	// TODO: log the request
