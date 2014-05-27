@@ -13,23 +13,28 @@ exports.dispatch = function(query) {
 	var methods = require('./config_api_methods').methods;
 	
 	var ok = 1;
-	
+	 
 	// TODO: check if the method exists -- this code is yukky cuz im tired right now
 	for(var meth in methods){
 		if (methods[meth].name == method ){
+			var method_meta = methods[meth];
 			ok = 0;
 		}	
 	}
 	
 	if ( ok == 1){
-		// TODO: something like api_output_error(404, "Method '{$enc_method}' not found");
 		return api_output.error(404, "Method " + method + " not found");
 		// TODO: figure out how to escape stuff
 	} 
 	
-	var rsp = {};
-	rsp['method'] = method;
-	return api_output.ok(rsp);
+	// TODO: all the other checks .. oauth, get vs. post, etc...
 	
+	// GO...
 	
+	var api_lib = require('./lib_' + method_meta.library);
+
+	var func = method_meta.name.split('.').pop();
+		
+	return eval('api_lib.' + func + '()');
+		
 };
