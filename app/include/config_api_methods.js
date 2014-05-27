@@ -32,5 +32,20 @@ exports.methods =
 			"enabled":1,
 			"library":"api_test"
 		},
+		
+		{
+			"name":"tweets.getInfo",
+			"description":"Get info about a tweet",
+			"documented":1,
+			"enabled":1,
+			"library":"api_tweets",
+			"parameters":[{
+					"name":"tweet_id",
+					"description":"A valid tweet ID.",
+					"required":1
+				}
+			]
+			
+		},
 
 ]

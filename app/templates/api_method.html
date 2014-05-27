@@ -3,7 +3,11 @@
 <h3>{{ method.name }}</h3>
 <p>{{ method.description }}</p>
 
+<h3>parameters</h3>
+<pre>{{ method.parameters|json(4) }}</pre>
+
 <h3>example request</h3>
 <pre>$ curl "https://micahwalter.com/rest?method={{ method.name }}"</pre>
+
 
 {% endblock %}
