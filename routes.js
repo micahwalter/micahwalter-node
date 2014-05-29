@@ -59,6 +59,9 @@ module.exports = function(app, passport) {
 	app.get('/p/:id/delete', authorization.isLoggedIn, post_delete.render);
 	app.post('/p/:id/delete', authorization.isLoggedIn, post_delete.update);
 	
+	var posts = require('./app/posts');
+	app.get('/@:username/posts/:page?', posts.render);
+	
 	// Tweets
 	var tweet = require('./app/tweet');
 	app.get('/t/:id', tweet.render);

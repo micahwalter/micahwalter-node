@@ -27,7 +27,7 @@ TweetSchema.statics.findByID = function (id, cb, err) {
 }
 
 TweetSchema.statics.findByUserID = function findByUserID(username, page, cb, err){
-	// ahh this i smuch better / fix above
+	// ahh this is much better / fix above
 	this.find({'tweet.user.screen_name':username}).sort({'tweet.id':-1}).skip(10*(page-1)).limit(10).exec(cb);
 }
 

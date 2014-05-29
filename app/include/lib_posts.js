@@ -27,15 +27,26 @@ var PostSchema = new Schema({
 // ************************************************************** //
 
 PostSchema.statics.findByID = function (id, cb, err) {
-  this.findOne({ '_id': id }, cb).populate('user', 'twitter');
+	this.findOne({ '_id': id }, cb).populate('user', 'twitter');
 }
 
 // ************************************************************** //
 
-PostSchema.statics.findAllByUserID = function (id, cb, err) {
-  this.find({ 'user': id }, cb);
+PostSchema.statics.findAllByUserID = function findAllByUserID(id, cb, err) {
+    this.find({ 'user': id }, cb);
+	//this.find({ 'user.screen_name': username }).sort({'created':-1}).skip(10*(page-1)).limit(10).exec(cb);
+  
 }
 
+PostSchema.statics.findByUserID = function findByUserID(username, page, cb, err) {
+  //this.find({ 'user': id }, cb);
+	this.find({ 'user.screen_name': username }).sort({'created':-1}).skip(10*(page-1)).limit(10).exec(cb);
+  
+}
+
+PostSchema.statics.countByUserID = function countByUserID(username, page, cb, err){
+	this.count({'user.screen_name':username}).exec(cb);
+}
 
 // ************************************************************** //
 // create the model for posts and expose it to our app
