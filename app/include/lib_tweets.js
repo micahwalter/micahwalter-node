@@ -31,6 +31,10 @@ TweetSchema.statics.findByUserID = function findByUserID(username, page, cb, err
 	this.find({'tweet.user.screen_name':username}).sort({'tweet.id':-1}).skip(10*(page-1)).limit(10).exec(cb);
 }
 
+TweetSchema.statics.findMostRecentByUserID = function findMostRecentByUserID(username, cb, err){
+	this.find({'tweet.user.screen_name':username}).sort({'tweet.id':-1}).limit(1).exec(cb);
+}
+
 TweetSchema.statics.countByUserID = function countByUserID(username, page, cb, err){
 	// ahh this i smuch better / fix above
 	this.count({'tweet.user.screen_name':username}).exec(cb);
