@@ -20,20 +20,20 @@ exports.render = function(req, res) {
 		    });
 	    
 		} else {
-			
-			Posts.countByUserID(req.params['username'], req.params['page'], function (err, count) {
-					//res.send(posts);
-					res.render('posts', {
-						title : req.params['username'],
-						username : req.params['username'],
-						posts : posts,
-						page : req.params['page'],
-						count: count,
-						next_page: parseInt(page) + 1,
-						pages: Math.ceil(count / 10), // for now 10 per page...
-				
-					});
-			});
+			res.send(posts);
+			// Posts.countByUserID(req.params['username'], req.params['page'], function (err, count) {
+			// 		
+			// 		// res.render('posts', {
+			// 		// 	title : req.params['username'],
+			// 		// 	username : req.params['username'],
+			// 		// 	posts : posts,
+			// 		// 	page : req.params['page'],
+			// 		// 	count: count,
+			// 		// 	next_page: parseInt(page) + 1,
+			// 		// 	pages: Math.ceil(count / 10), // for now 10 per page...
+			// 		// 				
+			// 		});
+			// });
 		
 		}
 	
