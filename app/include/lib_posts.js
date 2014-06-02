@@ -38,14 +38,14 @@ PostSchema.statics.findAllByUserID = function findAllByUserID(id, cb, err) {
   
 }
 
-PostSchema.statics.findByUserID = function findByUserID(username, page, cb, err) {
-  this.find({'user.username':username}, cb);
-	//this.find({ 'user.screen_name': username }).sort({'created':-1}).skip(10*(page-1)).limit(10).exec(cb);
+PostSchema.statics.findByUserID = function findByUserID(id, page, cb, err) {
+  //this.find({'user':id}, cb);
+	this.find({ 'user': id }).sort({'created':-1}).skip(10*(page-1)).limit(10).exec(cb);
   
 }
 
-PostSchema.statics.countByUserID = function countByUserID(username, page, cb, err){
-	this.count({'user.screen_name':username}).exec(cb);
+PostSchema.statics.countByUserID = function countByUserID(id, page, cb, err){
+	this.count({'user':id}).exec(cb);
 }
 
 // ************************************************************** //

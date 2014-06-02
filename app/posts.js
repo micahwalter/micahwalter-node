@@ -22,16 +22,22 @@ exports.render = function(req, res) {
 	    
 		} else {
 			
-			Post.findAllByUserID(users._id, function(err, posts) {
-				res.send(posts);
-				// res.render('posts', {
-// 					user : req.user,
-// 					profile : users,
-// 					posts : posts, 
-// 					title: 'Profile' 
-// 				});				
-			});
+			Post.findByUserID(users._id, req.params['page'], function(err, posts) {
+				
+				Post.countByUserID(users._id, req.params['page'], function (err, count) {
+				//res.send(posts);
+					res.render('posts', {
+						title : req.params['username'],
+						username : req.params['username'],
+						posts : posts,
+						page : req.params['page'],
+						count: count,
+						next_page: parseInt(page) + 1,
+						pages: Math.ceil(count / 10), // for now 10 per page...
 			
+					});
+				});
+			});
 		
 		}
 	
