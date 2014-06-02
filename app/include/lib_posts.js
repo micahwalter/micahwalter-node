@@ -39,7 +39,7 @@ PostSchema.statics.findAllByUserID = function findAllByUserID(id, cb, err) {
 }
 
 PostSchema.statics.findByUserID = function findByUserID(username, page, cb, err) {
-  this.find({}, cb);
+  this.find({'user.username':username}, cb);
 	//this.find({ 'user.screen_name': username }).sort({'created':-1}).skip(10*(page-1)).limit(10).exec(cb);
   
 }

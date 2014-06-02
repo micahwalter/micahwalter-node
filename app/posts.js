@@ -1,4 +1,5 @@
-var Posts = require('./include/lib_posts');
+var Post = require('./include/lib_posts');
+var User = require('./include/lib_users');
 
 exports.render = function(req, res) {
 	
@@ -10,9 +11,9 @@ exports.render = function(req, res) {
 		page = 1;
 	}
 	
-	Posts.findByUserID(req.params['username'], req.params['page'], function (err, posts) {
+	User.findByName(req.params['username'], function (err, users) {
 	
-	    if ( !posts ){
+	    if ( !users ){
 		
 		    res.status(404).render('404', {
 		        url: req.originalUrl,
@@ -20,20 +21,17 @@ exports.render = function(req, res) {
 		    });
 	    
 		} else {
-			res.send(posts);
-			// Posts.countByUserID(req.params['username'], req.params['page'], function (err, count) {
-			// 		
-			// 		// res.render('posts', {
-			// 		// 	title : req.params['username'],
-			// 		// 	username : req.params['username'],
-			// 		// 	posts : posts,
-			// 		// 	page : req.params['page'],
-			// 		// 	count: count,
-			// 		// 	next_page: parseInt(page) + 1,
-			// 		// 	pages: Math.ceil(count / 10), // for now 10 per page...
-			// 		// 				
-			// 		});
-			// });
+			
+			Post.findAllByUserID(users._id, function(err, posts) {
+				res.send(posts);
+				// res.render('posts', {
+// 					user : req.user,
+// 					profile : users,
+// 					posts : posts, 
+// 					title: 'Profile' 
+// 				});				
+			});
+			
 		
 		}
 	
