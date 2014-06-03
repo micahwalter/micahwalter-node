@@ -5,13 +5,20 @@
 		{% include '../includes/nav.html' %}
 
     <div class="container">
-      <!-- <div class="row"> -->
-        <div class="col-md-12">
+      <div class="row">
+		<div class="col-md-3">
+			<h3>API Docs</h3>
+			<ul class="nav">
+				<li><a href="/api">Overview</a></li>
+				<li><a href="/api/methods">Methods</a></li>
+			</ul>
+		</div>	  
+        <div class="col-md-9">
 					<h2>{{ title }}</h2>
 
-		    {% block content %}{% endblock %}
+		    		{% block content %}{% endblock %}
 			</div>
-		<!-- </div> -->
+		</div>
 	</div>
 	{% include '../includes/foot.html' %}
     </body>
