@@ -2,16 +2,12 @@ var api_output = require('./lib_api_output');
 
 module.exports = {
 	
-	echo: function(query){
-			
-		return api_output.ok(query);
-		
+	echo: function(req, res, query) {
+		api_output.ok(req, res, query);
 	},
 	
-	error: function(query){
-				
-		return api_output.error(500, 'This is the network of our disconnect');
-		
+	error: function(req, res) {
+		api_output.error(req, res, 500, 'This is the network of our disconnect');
 	}
 	
-}
+};
