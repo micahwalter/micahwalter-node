@@ -3,4 +3,32 @@
 	<p>
 		<blockquote>{{ wwms.says }}</blockquote>
 	</p>
+	
+	<form class="form-horizontal">
+	<fieldset>
+
+	<!-- Form Name -->
+	<legend>Twitter Settings</legend>
+
+	<!-- Multiple Checkboxes -->
+	<div class="control-group">
+	  <div class="controls">
+	    <label class="checkbox" for="settings-0">
+	      <input type="checkbox" name="settings" id="settings-0" value="Backup Tweets">
+	      Backup Tweets
+	    </label>
+	  </div>
+	</div>
+
+	<!-- Button -->
+	<div class="control-group">
+	  <label class="control-label" for="singlebutton"></label>
+	  <div class="controls">
+	    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+	  </div>
+	</div>
+
+	</fieldset>
+	</form>
+		
 {% endblock %}
