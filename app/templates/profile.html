@@ -11,7 +11,7 @@
 						<strong>username</strong>: {{ profile.twitter.username }}<br />
 						<img class="img-circle" src="{{ profile.twitter.profilePhoto }}" />
 					</p>
-					
+					<h3>Recent Posts</h3>
 					<ul>
 					{% for post in posts %}
 					  <li>
@@ -19,6 +19,15 @@
 					  </li>
 					{% endfor %}
 					</ul>
+					<h3>Recent Tweets</h3>
+					<ul>
+					{% for tweet in tweets %}
+					  <li>
+					    <a href="/t/{{ tweet.id }}">{{ tweet.tweet.text }}</a>
+					  </li>
+					{% endfor %}
+					</ul>
+					
 			</div>
 	</div>
 

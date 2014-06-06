@@ -1,5 +1,6 @@
 var User = require('./include/lib_users');
 var Post = require('./include/lib_posts');
+var Tweets = require('./include/lib_tweets');
 
 exports.render = function(req, res) {
 	
@@ -17,12 +18,17 @@ exports.render = function(req, res) {
 		} else {
 			
 			Post.findAllByUserID(users._id, function(err, posts) {
-				res.render('profile', {
-					user : req.user,
-					profile : users,
-					posts : posts, 
-					title: 'Profile' 
-				});				
+					Tweets.findByUserID(req.params['username'], "1", function (err, tweets) {
+						res.render('profile', {
+							user : req.user,
+							profile : users,
+							posts : posts,
+							tweets: tweets, 
+							title: 'Profile' 
+						});				
+						
+					});
+					
 			});
 			
 		
