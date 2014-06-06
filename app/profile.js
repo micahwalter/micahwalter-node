@@ -17,7 +17,7 @@ exports.render = function(req, res) {
 	    
 		} else {
 			
-			Post.findAllByUserID(users._id, function(err, posts) {
+			Post.findByUserID(users._id, "1", function(err, posts) {
 					Tweets.findByUserID(req.params['username'], "1", function (err, tweets) {
 						res.render('profile', {
 							user : req.user,

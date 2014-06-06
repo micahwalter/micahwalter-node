@@ -1,9 +1,9 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
 
-	<div class="row">
+	<!-- <div class="row"> -->
 		<!-- TWITTER INFORMATION -->
-			<div class="well">
+			<!-- <div class="well"> -->
 					<p>
 						<strong>id</strong>: {{ profile.twitter.id }}<br>
 						<strong>display name</strong>: {{ profile.twitter.displayName }}<br>
@@ -18,6 +18,7 @@
 					    <a href="/p/{{ post.id }}">{{ post.title }} created on {{ post.created|date('F jS, Y') }}</a>
 					  </li>
 					{% endfor %}
+					<li><a href="/@{{ profile.twitter.username }}/posts">more posts...</a></li>
 					</ul>
 					<h3>Recent Tweets</h3>
 					<ul>
@@ -26,9 +27,10 @@
 					    <a href="/t/{{ tweet.id }}">{{ tweet.tweet.text }}</a>
 					  </li>
 					{% endfor %}
+					<li><a href="/@{{ profile.twitter.username }}/tweets">more tweets...</a></li>
 					</ul>
 					
-			</div>
-	</div>
+			<!-- </div> -->
+	<!-- </div> -->
 
 {% endblock %}
