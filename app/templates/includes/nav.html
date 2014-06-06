@@ -26,7 +26,9 @@
 			<li><a href="/auth/twitter"><span class="fa fa-twitter"></span> sign in</a></li>
 			{% endif %}
    	       	{% if user %}
-			<li><a href="/@{{ user.twitter.username }}"><span class="fa fa-user"></span> {{ user.twitter.displayName }}</a></li>
+			<li><a href="/settings"><span class="fa fa-cog"></span> settings</a></li>
+			<li><a href="/logout"><span class="fa fa-sign-out"></span> logout</a></li>
+			<li><a href="/@{{ user.twitter.username }}"><span class="fa fa-user"></span> {{ user.twitter.username }}</a></li>
    			<li><a href="/p/new-post"><span class="fa fa-edit"></span> new post</a></li>
    			{% endif %}  
             <li><a href="/search"><span class="fa fa-search"></span></a></li>

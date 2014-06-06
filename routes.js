@@ -39,6 +39,13 @@ module.exports = function(app, passport) {
     var dashboard = require('./app/dashboard');
     app.get('/dashboard', authorization.isLoggedIn, dashboard.render);
 	
+	// account settings
+	var settings_account = require('./app/settings_account');
+	app.get('/settings', function(req, res) {
+		res.redirect('/settings/account');
+	});
+	app.get('/settings/account', authorization.isLoggedIn, settings_account.render)
+	
 	// Profile route
 	var profile = require('./app/profile');
 	app.get('/@:username', profile.render);
