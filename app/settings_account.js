@@ -19,3 +19,8 @@ exports.render = function(req, res, passport) {
 		});			
 	});	
 };
+
+
+exports.update = function(req, res){
+	
+};
