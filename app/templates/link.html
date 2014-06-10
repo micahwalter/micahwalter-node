@@ -1,0 +1,11 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+						<div class="content">
+						<h3><a href="{{ link.link }}">{{ link.link }}</a></h3>	
+						<p>{{ link.description|safe }}</p>
+						</div>
+						<a href="/@{{ link.user.twitter.username }}"><img class="img-circle" src="{{ link.user.twitter.profilePhoto }}" /></a> <a href="/@{{ link.user.twitter.username }}"> {{ link.user.twitter.username }}</a>
+						{% if user %}<br /><br /><a href="/l/{{ link.id }}/edit" class="btn btn-lg btn-default" role="button">Edit</a>{% endif %}
+
+{% endblock %}

@@ -68,6 +68,26 @@ module.exports = function(app, passport) {
 	
 	var posts = require('./app/posts');
 	app.get('/@:username/posts/:page?', posts.render);
+
+	// Links
+	
+	// var link_new = require('./app/link_new');
+	// app.get('/l/new-link', authorization.isLoggedIn, link_new.render);
+	// app.post('/l/new-link', authorization.isLoggedIn, link_new.create);
+	// 
+	var link = require('./app/link');
+	app.get('/l/:id', link.render);
+	// 
+	// var link_edit = require('./app/link_edit');
+	// app.get('/l/:id/edit', authorization.isLoggedIn, link_edit.render);
+	// app.post('/l/:id/edit', authorization.isLoggedIn, link_edit.update);
+	// 
+	// var link_delete = require('./app/link_delete');
+	// app.get('/l/:id/delete', authorization.isLoggedIn, link_delete.render);
+	// app.post('/l/:id/delete', authorization.isLoggedIn, link_delete.update);
+	// 
+	// var links = require('./app/links');
+	// app.get('/@:username/links/:page?', links.render);
 	
 	// Tweets
 	var tweet = require('./app/tweet');

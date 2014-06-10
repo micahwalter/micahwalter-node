@@ -28,4 +28,10 @@ var LinkSchema = new Schema({
     }
 });
 
+// ************************************************************** //
+
+LinkSchema.statics.findByID = function (id, cb, err) {
+	this.findOne({ '_id': id }, cb).populate('user', 'twitter');
+}
+
 module.exports = mongoose.model('Link', LinkSchema);
