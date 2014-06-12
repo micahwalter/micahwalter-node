@@ -3,7 +3,7 @@ var Link = require('./include/lib_links');
 // ************************************************************** //
 
 exports.render = function(req, res, passport) {	
-	res.render('post_new', {
+	res.render('link_new', {
 		user : req.user, 
 		title: 'New Link' 
 	});

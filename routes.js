@@ -71,9 +71,9 @@ module.exports = function(app, passport) {
 
 	// Links
 	
-	// var link_new = require('./app/link_new');
-	// app.get('/l/new-link', authorization.isLoggedIn, link_new.render);
-	// app.post('/l/new-link', authorization.isLoggedIn, link_new.create);
+	var link_new = require('./app/link_new');
+	app.get('/l/new-link', authorization.isLoggedIn, link_new.render);
+	app.post('/l/new-link', authorization.isLoggedIn, link_new.create);
 
 	var link = require('./app/link');
 	app.get('/l/:id', link.render);
