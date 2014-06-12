@@ -1,19 +1,16 @@
 var Link = require('./include/lib_links');
 
-var mongoose = require('mongoose'),
-    _ = require('lodash');
+// ************************************************************** //
 
-
-exports.render = function(req, res, passport) {
-    res.render('post_new', {
+exports.render = function(req, res, passport) {	
+	res.render('post_new', {
 		user : req.user, 
 		title: 'New Link' 
 	});
 };
 
-/**
- * Create a link
- */
+// ************************************************************** //
+
 exports.create = function(req, res) {
     var link = new Link();
     link.user = req.user;
@@ -32,4 +29,7 @@ exports.create = function(req, res) {
         }
     });
 };
+
+// ************************************************************** //
+
 
