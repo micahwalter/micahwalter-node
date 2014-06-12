@@ -1,0 +1,38 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+	<form class="form-horizontal" action="/l/new-link" method="post" role="form">
+	<fieldset>
+
+	<!-- Form Name -->
+	<legend>Create a link</legend>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-sm-2 control-label" for="title">Title</label>
+	  <div class="col-sm-10">
+	    <input id="title" name="title" type="text" placeholder="" class="form-control" required="">
+    
+	  </div>
+	</div>
+
+	<!-- Textarea -->
+	<div class="form-group">
+	  <div class="col-sm-12">                     
+	    <textarea class="form-control" rows="10" id="content" name="content"></textarea>
+	  </div>
+	</div>
+
+	<!-- Button -->
+	<div class="control-group">
+	  <label class="control-label" for="submit"></label>
+	  <div class="controls">
+	    <button class="btn btn-lg btn-primary">Submit</button>
+		<a href="/" class="btn btn-lg btn-danger" role="button">Cancel</a>
+	  </div>
+	</div>
+
+	</fieldset>
+	</form>
+	
+{% endblock %}
