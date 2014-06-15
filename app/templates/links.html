@@ -1,0 +1,22 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+							<div class="content">
+							<h3>There are {{ count }} links</h3>
+							<p>This is page {% if page %}{{ page }}{% else %}1{% endif %} of {{ pages }}</p> 	
+							<ul>
+							{% for link in links %}
+							<li><a href="/l/{{ link.id }}">{{ link.title }}</a> - created on {{ link.link }}</li>
+							{% endfor %}
+							</ul>
+
+							{% if pages > 1 %}
+							<ul class="pagination">
+							  {% if page > 1 %}<li><a href="/@{{ username }}/links/{{ page-1 }}">&laquo;</a></li>{% endif %}
+							  {% if page < pages %}<li><a href="/@{{ username }}/links/{{ next_page }}">&raquo;</a></li>{% endif %}
+							</ul>
+							{% endif %}
+							
+							</div>
+						
+{% endblock %}

@@ -86,8 +86,8 @@ module.exports = function(app, passport) {
 	// app.get('/l/:id/delete', authorization.isLoggedIn, link_delete.render);
 	// app.post('/l/:id/delete', authorization.isLoggedIn, link_delete.update);
 	// 
-	// var links = require('./app/links');
-	// app.get('/@:username/links/:page?', links.render);
+	var links = require('./app/links');
+	app.get('/@:username/links/:page?', links.render);
 	
 	// Tweets
 	var tweet = require('./app/tweet');
