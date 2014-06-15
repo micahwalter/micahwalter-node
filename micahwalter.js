@@ -64,19 +64,19 @@ var BrokenLinks = mongoose.model('BrokenLinks', {
 
 // Assume 404 since no middleware responded
 app.use(function(req, res) {
-    BrokenLinks.create({
-            url : req.path,
-            done : false
-    }, function(err) {
-        if (err) {
-        	res.send(err);
-		} else {
+		//     BrokenLinks.create({
+		//             url : req.path,
+		//             done : false
+		//     }, function(err) {
+		//         if (err) {
+		//         	res.send(err);
+		// } else {
 		    res.status(404).render('404', {
 		        url: req.originalUrl,
 		        error: 'Not found'
 		    });
-		}
-	});
+	// 	}
+	// });
 });
 
 
